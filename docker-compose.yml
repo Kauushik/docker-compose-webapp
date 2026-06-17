@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    container_name: devops-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+
+  database:
+    image: mysql:8.0
+    container_name: devops-database
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: devopsdb
